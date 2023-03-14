@@ -42,6 +42,15 @@ public:
                    TEXTURE_FORMAT DepthBufferFmt,
                    Uint32         InitialVertexBufferSize = ImGuiImplDiligent::DefaultInitialVBSize,
                    Uint32         InitialIndexBufferSize  = ImGuiImplDiligent::DefaultInitialIBSize);
+    ImGuiImplWin32(HWND           hWnd,
+                   IRenderDevice* pDevice,
+                   TEXTURE_FORMAT BackBufferFmt,
+                   TEXTURE_FORMAT DepthBufferFmt,
+                   bool EnableDocking,
+                   Uint32         InitialVertexBufferSize = ImGuiImplDiligent::DefaultInitialVBSize,
+                   Uint32         InitialIndexBufferSize  = ImGuiImplDiligent::DefaultInitialIBSize);
+
+
     ~ImGuiImplWin32();
 
     LRESULT Win32_ProcHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam);

@@ -50,6 +50,16 @@ ImGuiImplDiligent::ImGuiImplDiligent(IRenderDevice* pDevice,
     m_pRenderer.reset(new ImGuiDiligentRenderer(pDevice, BackBufferFmt, DepthBufferFmt, InitialVertexBufferSize, InitialIndexBufferSize));
 }
 
+ImGuiImplDiligent::ImGuiImplDiligent(IRenderDevice* pDevice, TEXTURE_FORMAT BackBufferFmt, TEXTURE_FORMAT DepthBufferFmt, bool EnableDocking, Uint32 InitialVertexBufferSize, Uint32 InitialIndexBufferSize)
+{
+    ImGui::CreateContext();
+    ImGuiIO& io    = ImGui::GetIO();
+    io.IniFilename = nullptr;
+    if (EnableDocking)
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    m_pRenderer.reset(new ImGuiDiligentRenderer(pDevice, BackBufferFmt, DepthBufferFmt, InitialVertexBufferSize, InitialIndexBufferSize));
+}
+
 ImGuiImplDiligent::~ImGuiImplDiligent()
 {
     ImGui::DestroyContext();

@@ -51,6 +51,12 @@ ImGuiImplWin32::ImGuiImplWin32(HWND           hWnd,
     ImGui_ImplWin32_Init(hWnd);
 }
 
+ImGuiImplWin32::ImGuiImplWin32(HWND hWnd, IRenderDevice* pDevice, TEXTURE_FORMAT BackBufferFmt, TEXTURE_FORMAT DepthBufferFmt, bool EnableDocking, Uint32 InitialVertexBufferSize, Uint32 InitialIndexBufferSize) :
+    ImGuiImplDiligent(pDevice, BackBufferFmt, DepthBufferFmt,EnableDocking,InitialVertexBufferSize, InitialIndexBufferSize)
+{
+    ImGui_ImplWin32_Init(hWnd);
+}
+
 ImGuiImplWin32::~ImGuiImplWin32()
 {
     ImGui_ImplWin32_Shutdown();

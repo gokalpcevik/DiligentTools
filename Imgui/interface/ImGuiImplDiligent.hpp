@@ -51,6 +51,12 @@ public:
                       TEXTURE_FORMAT DepthBufferFmt,
                       Uint32         InitialVertexBufferSize = DefaultInitialVBSize,
                       Uint32         InitialIndexBufferSize  = DefaultInitialIBSize);
+	ImGuiImplDiligent(IRenderDevice* pDevice,
+	                  TEXTURE_FORMAT BackBufferFmt,
+	                  TEXTURE_FORMAT DepthBufferFmt,
+	                  bool EnableDocking,
+	                  Uint32         InitialVertexBufferSize = DefaultInitialVBSize,
+	                  Uint32         InitialIndexBufferSize  = DefaultInitialIBSize);
     virtual ~ImGuiImplDiligent();
 
     // clang-format off
